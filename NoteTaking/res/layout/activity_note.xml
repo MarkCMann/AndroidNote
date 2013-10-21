@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+    <Button
+        android:id="@+id/createNoteButton"
+        style="@style/ButtonStyle"
+        android:text="@string/createNoteButtonText"
+        android:onClick="createNoteClicked" />
+    
+    <Button
+        android:id="@+id/loadNoteButton"
+        android:layout_toRightOf="@+id/createNoteButton"
+        style="@style/ButtonStyle"
+        android:text="@string/loadNoteButtonText"
+        android:onClick="loadNoteClicked" />
+    
+    <Button
+        android:id="@+id/deleteNoteButton"
+        style="@style/ButtonStyle"
+        android:layout_toRightOf="@+id/loadNoteButton"
+        android:text="@string/deleteNoteButtonText" 
+        android:onClick="deleteNoteClicked" />
+
+    <EditText 
+        android:id="@+id/noteSpace"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createNoteButton"
+        android:inputType="textMultiLine" />
+
+    <!--<Button
+        android:id="@+id/sendMailButton"
+        android:layout_toRightOf="@+id/loadNoteButton"
+        style="@style/ButtonStyle"
+        android:text="@string/sendMailButtonText"
+        android:onClick="sendMailClicked" />-->
+    
+</RelativeLayout>

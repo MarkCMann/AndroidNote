@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">NoteTaking</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="createNoteButtonText">Create Note</string>
+    <string name="deleteNoteButtonText">Delete Note</string>
+    <string name="loadNoteButtonText">Load Note</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Accept">Accept</string>
+    <string name="CreateNoteConfirmation">Create</string>
+    <string name="sendMailButtonText">Send Mail</string>
+
+</resources>
