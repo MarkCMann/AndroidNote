@@ -15,7 +15,7 @@ public class FileParser {
 	 * @param delegate
 	 * @return
 	 */
-	public SpannableString getSpannableStringFromRawFileText(String string, NoteDelegate delegate) {
+	public SpannableString getSpannableStringFromRawFileText(final String string, final NoteDelegate delegate) {
 		if (string == null || string.equalsIgnoreCase("")) {
 			return new SpannableString("");
 		}
@@ -49,6 +49,26 @@ public class FileParser {
 		return new SpannableString(sb);
 	}
 	
+	/**
+	 * Creates a copy of the given sequence replacing spans with a textual representation.
+	 * @param sequence The sequence to remove the spans from.
+	 * @return
+	 */
+	public CharSequence rawTextForSequence(final SpannableString sequence) {
+		SpannableStringBuilder sb = new SpannableStringBuilder(sequence);
+		final String newLine = System.getProperty("line.separator");
+		
+		FileLoadingSpan[] spans = sequence.getSpans(0, sequence.length(), FileLoadingSpan.class);
+		int start, end;
+		for (int i = 0; i < spans.length; i++) {
+			start = sb.getSpanStart(spans[i]);
+			end = sb.getSpanEnd(spans[i]);
+			String str = "@subnote:" + spans[i].getFilename() + "@<" + sb.subSequence(start, end) + ">";
+			sb.replace(start, end, str);
+		}
+		return sb;
+	}
+	
 	class FileLoadingSpan extends ClickableSpan {
 
 		private String filename;
@@ -72,6 +92,5 @@ public class FileParser {
 		public String getFilename() {
 			return this.filename;
 		}
-		
 	}
 }
